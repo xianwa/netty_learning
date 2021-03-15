@@ -1,0 +1,6 @@
+拆包:
+  单次发送的包内容过多的情况，拆包的现象:
+    server端接收的输出:
+    server receive order :In this chapter you general, we recommend Java Concurrency in Practice by Brian Goetz. His book will give We’ve reached an exciting point—in the next chapter we’ll discuss bootstrapping, the process of configuring and connecting all of Netty’s components to bring your learned about threading models in general and Netty’s threading model in particular, whose performance and consistency advantages we discussed in detail In this chapter you general, we recommend Java Concurrency in Practice by Brian Goetz. His book will give We’ve reached an exciting point—in the next chapter we’ll discuss bootstrapping, the process of configuring and connecting all of Netty’s components to bring your learned about threading models in general and Netty’s threading model in particular, whose performance and consistency advantages we discussed in detailIn this chapter you general, we recommend Java Concurrency in Practice by Brian Goetz. His book will give We’ve reached an exciting point—in the next chapter;the counter is:1
+    server receive order :;the counter is: 1 2222sdsa ddasd asdsadas dsadasdas;the counter is:2
+分成了两条进行输出
