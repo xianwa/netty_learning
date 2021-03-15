@@ -25,28 +25,26 @@ public class CustomDecoder extends LengthFieldBasedFrameDecoder {
         super(maxFrameLength, lengthFieldOffset, lengthFieldLength, lengthAdjustment, initialBytesToStrip, failFast);
     }
 
-    // todo 要实现这个方法吗?
-//    @Override
-//    protected ByteBuf extractFrame(ChannelHandlerContext ctx, ByteBuf buffer, int index, int length) {
-//        return super.extractFrame(ctx, buffer, index, length);
-//    }
-
     @Override
     protected Object decode(ChannelHandlerContext ctx, ByteBuf in) throws Exception {
+        //在这里调用父类的方法,实现指得到想要的部分,我在这里全部都要,也可以只要body部分
+        // 这段代码很重要
+        in = (ByteBuf) super.decode(ctx,in);
+
         if (in == null) {
             return null;
         }
-//        if (in.readableBytes() < HEADER_SIZE) {
-//            throw new Exception("可读信息比头部信息都小");
-//        }
+        if (in.readableBytes() < HEADER_SIZE) {
+            throw new Exception("可读信息比头部信息都小");
+        }
         // 注意在读的过程中,readIndex的指针也在移动
         type = in.readByte();
         flag = in.readByte();
         length = in.readInt();
 
-//        if (in.readableBytes() < length) {
-//            throw new Exception("可读信息长度比body字段的长度小");
-//        }
+        if (in.readableBytes() < length) {
+            throw new Exception("可读信息长度比body字段的长度小");
+        }
 
         ByteBuf buf = in.readBytes(length);
         byte[] req = new byte[buf.readableBytes()];

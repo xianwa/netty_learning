@@ -1,9 +1,7 @@
 package com.example.hello_netty_09;
 
-import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
-import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * @author xian.wang
@@ -20,6 +18,6 @@ public class CustomClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         CustomMsg customMsg = (CustomMsg) msg;
-        System.out.println(customMsg.getBody());
+        System.out.println("msg:" + customMsg.getBody());
     }
 }
